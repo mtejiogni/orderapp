@@ -8,18 +8,65 @@
             <link rel="stylesheet" href="{{ asset('node_modules/bootstrap/dist/css/bootstrap.min.css') }}">
             <link rel="stylesheet" href="{{ asset('node_modules/@fortawesome/fontawesome-free/css/all.min.css') }}">
             <link rel="stylesheet" href="{{ asset('node_modules/animate.css/animate.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
         {% endblock %}
     </head>
     <body>
-        
+        <div id="sidebar" class="bg-dark" data-bs-theme="dark">
+            <h3 class="text-light text-center py-4">
+                OrderApp
+                <p class="fs-6 text">
+                    Gérer vos commandes facilement
+                </p>
+                <a class="btn btn-sm btn-info text-white" href="#">
+                    <i class="fa fa-user"></i>
+                </a>
+                <a class="btn btn-sm btn-danger text-white" href="#">
+                    <i class="fas fa-sign-out"></i>
+                </a>
+            </h3>
 
-        {% block body %}{% endblock %}
+            <hr />
+            
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">
+                        Accueil
+                    </a>
+                </li>
 
-        <footer class="bg-dark text-light text-center py-4">
-            <div class="container">
-                INUBIL | &copy; Copyright 2025 
-            </div>
-        </footer>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        Gestion des commandes
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        Gestion des produits
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        Gestion des utilisateurs
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div id="content">
+            {% block body %}{% endblock %}
+
+
+            <footer class="text-center py-4">
+                <div class="container">
+                    INUBIL | &copy; Copyright 2025 
+                </div>
+            </footer>
+        </div>
+
 
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
