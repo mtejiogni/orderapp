@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OrderApp | Ajouter un utilisateur{% endblock %}
+
+{% block body %}
+    <section class="container">
+        <div class="row justify-content-between text-center bg-body-secondary py-4">
+            <div class="col-4 fw-bold fs-4">
+                Ajouter un Utilisateur
+            </div>
+            <div class="col-4">
+                <a class="btn btn-md btn-info" href="{{ path('user.index') }}">
+                    <i class="fas fa-users"></i>
+                    Liste des utilisateurs
+                </a>
+            </div>
+        </div>
+
+
+        <div class="row justify-content-center">
+            <div class="col-8 py-4">
+                <form name="form" method="POST" action="{{ path('user.register') }}">
+                    <p>
+                        <label for="nom" class="form-label">
+                            Nom
+                        </label>
+                        <input type="text" id="nom" name="nom" class="form-control" placeholder="Entrez le nom" aria-describedby="nom_help" value="{{ params['nom'] ?? '' }}" />
+                        <div id="nom_help" class="form-text alert alert-warning">
+                            Le nom ne doit pas contenir de caractères spéciaux.
+                        </div>
+                    </p>
+
+                    <p>
+                        <label for="prenom" class="form-label">
+                            Prénom
+                        </label>
+                        <input type="text" id="prenom" name="prenom" class="form-control" placeholder="Entrez le prénom" aria-describedby="prenom_help" value="{{ params['prenom'] ?? '' }}" />
+                        <div id="prenom_help" class="form-text alert alert-warning">
+                            Le prénom ne doit pas contenir de caractères spéciaux.
+                        </div>
+                    </p>
+
+                    <p>
+                        <label for="telephone" class="form-label">
+                            Téléphone
+                        </label>
+                        <input type="tel" id="telephone" name="telephone" class="form-control" placeholder="Entrez le téléphone" aria-describedby="telephone_help" value="{{ params['nom'] ?? '' }}" />
+                        <div id="telephone_help" class="form-text alert alert-warning">
+                            Le numéro de téléphone doit être camerounais. Ex : 693909121
+                        </div>
+                    </p>
+
+
+                    <p>
+                        <label for="email" class="form-label">
+                            Email
+                        </label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Entrez l'adresse email" aria-describedby="email_help" value="{{ params['email'] ?? '' }}" />
+                        <div id="email_help" class="form-text alert alert-warning">
+                            L'email doit être au format xxx@xxx.xxx. Ex : mtejiogni@yahoo.fr
+                        </div>
+                    </p>
+
+                    <p>
+                        <input type="submit" id="enregistrer" value="Enregistrer" class="btn btn-md btn-success" />
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

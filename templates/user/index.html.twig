@@ -1,20 +1,58 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %}OrderApp | Gestion des utilisateurs{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <section class="container">
+        <div class="row justify-content-between text-center bg-body-secondary py-4">
+            <div class="col-4 fw-bold fs-4">
+                Utilisateurs
+            </div>
+            <div class="col-4">
+                <a class="btn btn-md btn-info" href="{{ path('user.edit') }}">
+                    <i class="fas fa-plus"></i>
+                    Ajouter un utilisateur
+                </a>
+            </div>
+        </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/wamp64/www/orderapp/src/Controller/UserController.php</code></li>
-        <li>Your template at <code>C:/wamp64/www/orderapp/templates/user/index.html.twig</code></li>
-    </ul>
-</div>
+        <div class="table-responsive py-4">
+            <table class="datatable table table-striped table-bordered" style="width: 100%">
+                <thead class="table-light">
+                    <tr>
+                        <th>N°</th>
+                        <th>NOM</th>
+                        <th>PRENOM</th>
+                        <th>TELEPHONE</th>
+                        <th>EMAIL</th>
+                        <th>OPTIONS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if users is defined and users is not null and users|length > 0 %}
+                    {% set i= 0 %}
+                    {% for user in users %}
+                    {% set i= i+1 %}
+                    <tr>
+                        <td>{{ i }}</td>
+                        <td>{{ user.nom }}</td>
+                        <td>{{ user.prenom }}</td>
+                        <td>{{ user.telephone }}</td>
+                        <td>{{ user.email }}</td>
+                        <td class="text-center">
+                            <a class="btn btn-sm btn-info" href="#">
+                                <i class="fas fa-pencil-alt"></i>
+                            </a>
+                            <a class="btn btn-sm btn-danger" href="#">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </section>
 {% endblock %}

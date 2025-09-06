@@ -3,5 +3,41 @@
 {% block title %}OrderApp | Gestion des commandes{% endblock %}
 
 {% block body %}
-    
+    <section class="container">
+        <div class="row justify-content-between text-center bg-body-secondary py-4">
+            <div class="col-4 fw-bold fs-4">
+                Tableau de bord
+            </div>
+            <div class="col-4">
+                <a class="btn btn-md btn-info" href="#">
+                    <i class="fas fa-cogs"></i>
+                    Gérer vos commandes
+                </a>
+            </div>
+        </div>
+
+
+        <div class="row py-4">
+            {% for i in range(0, 3) %}
+            <div class="col-sm-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            Commandes
+                        </h5>
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing 
+                            elit. Ipsa qui vitae est doloremque iste unde quisquam 
+                            repellendus! Itaque numquam cumque, fuga modi iure quod 
+                            odio eveniet dolor, obcaecati repellat quae?
+                        </p>
+                        <a class="btn btn-sm btn-primary" href="#">
+                            En savoir +
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
 {% endblock %}
