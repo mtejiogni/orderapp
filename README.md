@@ -8,7 +8,7 @@ Gestion des commandes
 
 ## Setting Symfony Project
 1. Cloner le dépôt
-   - `git clone https://github.com/votre-org/orderapp.git`
+   - `git clone https://github.com/mtejiogni/orderapp.git`
 2. Installer les dépendances
    - `cd orderapp/`
    - `composer install`
