@@ -41,10 +41,10 @@
                         <td>{{ user.telephone }}</td>
                         <td>{{ user.email }}</td>
                         <td class="text-center">
-                            <a class="btn btn-sm btn-info" href="#">
+                            <a class="btn btn-sm btn-info" href="{{ path('user.edit', {id:user.id}) }}">
                                 <i class="fas fa-pencil-alt"></i>
                             </a>
-                            <a class="btn btn-sm btn-danger" href="#">
+                            <a class="btn btn-sm btn-danger" href="{{ path('user.delete', {id:user.id}) }}">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
                         </td>

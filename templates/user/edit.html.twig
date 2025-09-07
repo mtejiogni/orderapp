@@ -1,12 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}OrderApp | Ajouter un utilisateur{% endblock %}
+
+{% block title %}
+    Editer un utilisateur
+{% endblock %}
+
 
 {% block body %}
     <section class="container">
         <div class="row justify-content-between text-center bg-body-secondary py-4">
             <div class="col-4 fw-bold fs-4">
-                Ajouter un Utilisateur
+                {% if user is defined and user.id is defined %}
+                    Modifier un utilisateur
+                    <br />
+                    <span class="fs-6">
+                        {{ user.nom ?? '' }}
+                    </span>
+                {% else %}
+                    Ajouter un utilisateur
+                {% endif %}
             </div>
             <div class="col-4">
                 <a class="btn btn-md btn-info" href="{{ path('user.index') }}">
@@ -20,11 +32,13 @@
         <div class="row justify-content-center">
             <div class="col-8 py-4">
                 <form name="form" method="POST" action="{{ path('user.register') }}">
+                    <input type="hidden" id="id" name="id" value="{{ user.id ?? '' }}" />
+
                     <p>
                         <label for="nom" class="form-label">
                             Nom
                         </label>
-                        <input type="text" id="nom" name="nom" class="form-control" placeholder="Entrez le nom" aria-describedby="nom_help" value="{{ params['nom'] ?? '' }}" />
+                        <input type="text" id="nom" name="nom" class="form-control" placeholder="Entrez le nom" aria-describedby="nom_help" value="{{ user.nom ?? '' }}" />
                         <div id="nom_help" class="form-text alert alert-warning">
                             Le nom ne doit pas contenir de caractères spéciaux.
                         </div>
@@ -34,7 +48,7 @@
                         <label for="prenom" class="form-label">
                             Prénom
                         </label>
-                        <input type="text" id="prenom" name="prenom" class="form-control" placeholder="Entrez le prénom" aria-describedby="prenom_help" value="{{ params['prenom'] ?? '' }}" />
+                        <input type="text" id="prenom" name="prenom" class="form-control" placeholder="Entrez le prénom" aria-describedby="prenom_help" value="{{ user.prenom ?? '' }}" />
                         <div id="prenom_help" class="form-text alert alert-warning">
                             Le prénom ne doit pas contenir de caractères spéciaux.
                         </div>
@@ -44,7 +58,7 @@
                         <label for="telephone" class="form-label">
                             Téléphone
                         </label>
-                        <input type="tel" id="telephone" name="telephone" class="form-control" placeholder="Entrez le téléphone" aria-describedby="telephone_help" value="{{ params['nom'] ?? '' }}" />
+                        <input type="tel" id="telephone" name="telephone" class="form-control" placeholder="Entrez le téléphone" aria-describedby="telephone_help" value="{{ user.telephone ?? '' }}" />
                         <div id="telephone_help" class="form-text alert alert-warning">
                             Le numéro de téléphone doit être camerounais. Ex : 693909121
                         </div>
@@ -55,7 +69,7 @@
                         <label for="email" class="form-label">
                             Email
                         </label>
-                        <input type="email" id="email" name="email" class="form-control" placeholder="Entrez l'adresse email" aria-describedby="email_help" value="{{ params['email'] ?? '' }}" />
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Entrez l'adresse email" aria-describedby="email_help" value="{{ user.email ?? '' }}" />
                         <div id="email_help" class="form-text alert alert-warning">
                             L'email doit être au format xxx@xxx.xxx. Ex : mtejiogni@yahoo.fr
                         </div>
